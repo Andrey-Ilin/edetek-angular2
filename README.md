@@ -5,7 +5,7 @@ Follow the following steps and you're good to go! Important: Typescript and npm 
 
 1: Clone repo
 ```
-git clone https://github.com/
+git clone https://github.com/Andrey-Ilin/edetek-angular2.git
 ```
 2: Install packages
 ```
