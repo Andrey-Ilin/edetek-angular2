@@ -1,0 +1,78 @@
+<div class="backbutton">
+    <button class="btn btn-success" (click)="onNavigate()">
+        <span class="glyphicon glyphicon-arrow-left"></span>
+    </button>
+</div>
+
+<div>
+    <div class="well">
+        <strong>Department name:</strong> {{department.name}}
+        <strong>Department description:</strong> {{department.description}}
+
+        <div class="alert alert-success">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Phone</th>
+                    <th>Salary</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="#employee of employees">
+                    <td>{{employee.firstName}}</td>
+                    <td>{{employee.lastName}}</td>
+                    <td>{{employee.phone}}</td>
+                    <td>{{employee.salary}}</td>
+                    <td>
+                        <button class="btn btn-danger" (click)="deleteEmployee(employee.id)">DELETE</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--<form class="form-horizontal" *ngIf="showEmployeeForm"-->
+              <!--ng-submit="addEmployee(newEmployee.firstName, newEmployee.lastName, newEmployee.phone, newEmployee.salary, department.id, department.name)">-->
+            <!--<div class="form-group">-->
+                <!--<label class="control-label col-sm-2">First name:</label>-->
+                <!--<div class="col-sm-10">-->
+                    <!--<input type="text" class="form-control" placeholder="Enter first name"-->
+                           <!--ng-model="newEmployee.firstName" required>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label class="control-label col-sm-2">Last name:</label>-->
+                <!--<div class="col-sm-10">-->
+                    <!--<input type="text" class="form-control" placeholder="Enter last name"-->
+                           <!--ng-model="newEmployee.lastName">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label class="control-label col-sm-2">Phone:</label>-->
+                <!--<div class="col-sm-10">-->
+                    <!--<input type="text" class="form-control" placeholder="Enter phone"-->
+                           <!--ng-model="newEmployee.phone">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label class="control-label col-sm-2">Salary:</label>-->
+                <!--<div class="col-sm-10">-->
+                    <!--<input type="text" class="form-control" placeholder="Enter salary"-->
+                           <!--ng-model="newEmployee.salary">-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<div class="col-sm-offset-2 col-sm-10">-->
+                    <!--<button type="submit" class="btn btn-default">Submit</button>-->
+                    <!--<button type="button" class="btn btn-default" ng-click="cancelAddEmployee()">Cancel</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</form>-->
+
+        <button class="btn btn-danger" (click)="showAddEmployeeForm()" *ngIf="!showEmployeeForm">Add Employee</button>
+    </div>
+</div>

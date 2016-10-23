@@ -1,0 +1,16 @@
+
+<ul>
+    <li *ngFor="#department of departments" class="well">
+        <strong>Department name:</strong> {{department.name}}
+        <strong>Department description:</strong> {{department.description}}
+        <div class="pull-right">
+            <button class="btn btn-danger" (click)="deleteDepartment(department.id)"
+                    *ngIf="department.hasEmployees">Delete
+            </button>
+            <button class="btn btn-primary" (click)="onNavigate(department.id)">Show
+                employees</button>
+        </div>
+    </li>
+</ul>
+
+<edetek-create-department (newDepartmentCreated)="getDepartments()"></edetek-create-department>
