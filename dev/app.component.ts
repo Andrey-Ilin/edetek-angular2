@@ -2,7 +2,7 @@ import {Component} from 'angular2/core';
 
 @Component({
   selector: 'app',
-  templateUrl: `Angular2`,
+  template: `Angular2`,
     
 })
 
