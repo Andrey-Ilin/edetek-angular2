@@ -39,7 +39,6 @@ export class EmployeesComponent implements OnInit{
                     this.department = this.departments.filter(function (department) {
                         return department.id === this.departmentId
                     }.bind(this))[0];
-                    console.log(this.department )
                 },
                 error => {
                     console.log(error)
@@ -61,8 +60,42 @@ export class EmployeesComponent implements OnInit{
             )
     }
 
-    showAddEmployeeForm() {
+    createEmployee(employee: {firstName: any, lastName: any, phone: any, salary: any}) {
+        let newEmployee = {};
+        newEmployee.firstName = employee.firstName.value;
+        newEmployee.lastName = employee.lastName.value;
+        newEmployee.phone = employee.phone.value;
+        newEmployee.salary = employee.salary.value;
+        newEmployee.departmentId = this.department.id;
+        newEmployee.departmentName = this.department.name;
+
+        return this._httpService.createEmployee(newEmployee)
+            .subscribe(
+                response => {
+                    this.getEmployees();
+                    this.showEmployeeForm = false;
+                },
+                error => {
+                    console.log(error)
+                }
+            )
+    }
+
+    deleteEmployee(employeeId: number) {
+        return this._httpService.deleteEmployee(employeeId)
+            .subscribe(
+                response => {
+                    this.getEmployees();
+                },
+                error => {
+                    console.log(error)
+                }
+            )
+    }
+
+    showHideAddEmployeeForm() {
         this.showEmployeeForm = !this.showEmployeeForm;
     }
-}
+    
+ }
 

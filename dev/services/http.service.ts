@@ -33,14 +33,14 @@ export class HttpService {
         firstName: string,
         lastName: string,
         phone: string,
-        salary: string,
+        salary: number,
         departmentId: number,
         departmentName: string
     }):Observable<any> {
         const body = JSON.stringify(employee);
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this._http.post('http://ebsexpress-env.us-west-2.elasticbeanstalk.com/users/employees/', body)
+        return this._http.post('http://ebsexpress-env.us-west-2.elasticbeanstalk.com/users/employees/', body, {headers})
             .map(res => {
                 res.json()
             })
